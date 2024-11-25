@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 /**
+ * @OA\SecurityScheme(
+ *     securityScheme="bearerAuth",
+ *     type="http",
+ *     scheme="bearer",
+ *     bearerFormat="JWT",
+ *     in="header",
+ *     description="JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below."
+ * )
+ *
  * @OA\Info(
  *     version="1.0.0",
  *     title="API de Autenticación",

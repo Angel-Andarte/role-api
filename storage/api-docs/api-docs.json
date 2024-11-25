@@ -149,10 +149,26 @@
             }
         }
     },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token in the text input below.",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
     "tags": [
         {
             "name": "Autenticación",
             "description": "Endpoints relacionados con la autenticación"
+        }
+    ],
+    "security": [
+        {
+            "bearerAuth": []
         }
     ]
 }
