@@ -1,52 +1,27 @@
 <?php
 
-namespace App\Models;
+namespace Database\Seeders;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
-use Laravel\Sanctum\HasApiTokens;
+use App\Models\Mes;
+use App\Models\User;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
-class User extends Authenticatable
+class DatabaseSeeder extends Seeder
 {
-
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
-
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
+     * Seed the application's database.
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'rut',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    public function run(): void
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        $this->call([
+            RolePermissionSeeder::class,
+            UserSeeder::class,
+            StatusSeeder::class,
+            ColegioSeeder::class,
+            YearSeeder::class,
+            MesSeeder::class,
+            ColegioSeeder::class,
+        ]);
     }
 }
